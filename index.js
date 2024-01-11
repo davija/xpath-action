@@ -18,6 +18,7 @@ try {
 
     const result = nodes.map(node => node.toString()).join("\n");
   
+  console.log('result is .... ' + result);
   exec(`echo "result=${result}" >> $GITHUB_OUTPUT`);
 } catch (error) {
     core.setFailed(error.message);
