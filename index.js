@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const { exec } = require('child_process');
 const xpath = require('xpath');
-const DOMParser = require('xmldom').DOMParser;
+const DOMParser = require('@xmldom/xmldom').DOMParser;
 const fs = require('fs');
 
 try {
@@ -19,8 +19,6 @@ try {
     const result = nodes.map(node => node.toString()).join("\n");
   
   exec(`echo "result=${result}" >> $GITHUB_OUTPUT`);
-  //core.setOutput("result", result);
-
 } catch (error) {
     core.setFailed(error.message);
 }
